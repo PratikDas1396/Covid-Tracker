@@ -1,0 +1,142 @@
+.header {
+    padding: 5px 0px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    transition: all 0.3s ease-in;
+    background: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.header .navbar-brand {
+    margin-right: 30px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.header .navbar-brand span {
+    font-weight: 700 !important;
+    margin-left: 20px !important;
+    font-size: 28px !important;
+}
+
+.header .navbar-brand img {
+    max-width: 35px !important;
+}
+
+.content-body {
+    margin-left: 0px;
+    margin-top: 30px;
+}
+
+.dashboard-container{
+    opacity: 1;
+    transition: all 0.25s ease-in;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    /* padding-top: 80px; */
+}
+
+.content-body {
+    margin-left: 0px;
+    margin-top: 30px;
+}
+
+.summary-container, .custom-card{
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    margin-bottom: 32px;
+    background: #ffffff;
+}
+
+.data-container{
+    display: flex;
+    box-pack: justify;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    flex-direction: column;
+    position: relative;
+}
+
+.heading-container{
+    font-size: 26px;
+    line-height: 0.8;
+}
+
+.data-header{
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: 400;
+    color: #5f6368;
+}
+.data-value{
+    margin: 4px 0;
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.flag-thumbnail{
+    width: 30px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.table{
+    position: relative;
+  border-collapse: collapse; 
+}
+
+.table td{
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.table thead th{
+    color: #70757a !important;
+    position: sticky;
+  top: 0;
+  background-color: #fff;
+}
+
+.table thead th {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: none;
+}
+
+.table-wrapper{
+    margin-top :30px;
+    height: 600px;
+    overflow-y: auto;
+}
+
+/* width */
+.table-wrapper::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  .table-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  .table-wrapper::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  .table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+.p-40px{
+    padding:40px !important;
+}
