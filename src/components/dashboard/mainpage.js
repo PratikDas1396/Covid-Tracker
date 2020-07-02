@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import '../../assets/css/custom.css'
+import numeral from '../../../node_modules/numeral/min/numeral.min'
 
 export class MainPage extends Component {
 
@@ -34,12 +35,12 @@ export class MainPage extends Component {
                             </span>
                         </span>
                         <span className="col-4">
-                            <div className="float-right align-middle">
+                            {/* <div className="float-right align-middle">
                                 <label className="c-switch c-switch-pill c-switch-primary">
                                     <input type="checkbox" className="c-switch-input" />
                                     <span className="c-switch-slider"></span>
                                 </label>
-                            </div>
+                            </div> */}
                         </span>
                     </div>
                     <div className="col-12 p-0">
@@ -61,21 +62,31 @@ export class MainPage extends Component {
             trs.push(
                 <tr key={this.state.data[index]["country"]}>
                     <td>
-                        <img src={this.state.data[index]["countryInfo"]['flag']} alt="" className="flag-thumbnail" />
+                        <img  src={this.state.data[index]["countryInfo"]['flag']} alt="" className="hidden-xs flag-thumbnail" />
                         {this.state.data[index]["country"]}
                     </td>
-                  
                     <td>
-                        {this.state.data[index]["cases"]}
+                        {
+                            numeral(this.state.data[index]["cases"]).format('0,0')
+                        }
                     </td>
                     <td>
-                        {this.state.data[index]["active"]}
+                        {
+                            // this.state.data[index]["active"]
+                            numeral(this.state.data[index]["active"]).format('0,0')
+                        }
                     </td>
                     <td>
-                        {this.state.data[index]["recovered"]}
+                        {
+                            numeral(this.state.data[index]["recovered"]).format('0,0')
+                            // this.state.data[index]["recovered"]
+                        }
                     </td>
                     <td>
-                        {this.state.data[index]["deaths"]}
+                        {
+                            numeral(this.state.data[index]["deaths"]).format('0,0')
+                            // this.state.data[index]["deaths"]
+                        }
                     </td>
                 </tr>
             )

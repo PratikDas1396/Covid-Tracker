@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import '../../assets/css/custom.css'
+import numeral from '../../../node_modules/numeral/min/numeral.min' 
 
 export class Summary extends Component {
     constructor(props) {
@@ -12,7 +13,7 @@ export class Summary extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://disease.sh/v2/all', {
+        axios.get('https://disease.sh/v3/covid-19/all', {
             headers: {
                 'Access-Control-Allow-Origin': '*'
             }
@@ -51,7 +52,7 @@ export class Summary extends Component {
                                     </div>
                                     <div className="data-value">
                                         {
-                                            this.state.summary_data["cases"]
+                                            numeral(this.state.summary_data["cases"]).format('0,0')
                                         }
                                     </div>
                                 </div>
@@ -61,7 +62,8 @@ export class Summary extends Component {
                                 </div>
                                     <div className="data-value">
                                         {
-                                            this.state.summary_data["active"]
+                                            numeral(this.state.summary_data["active"]).format('0,0')
+                                            // this.state.summary_data["active"]
                                         }
                                     </div>
                                 </div>
@@ -71,7 +73,8 @@ export class Summary extends Component {
                                 </div>
                                     <div className="data-value">
                                         {
-                                            this.state.summary_data["recovered"]
+                                            numeral(this.state.summary_data["recovered"]).format('0,0')
+                                            // this.state.summary_data["recovered"]
                                         }
                                     </div>
                                 </div>
@@ -81,7 +84,8 @@ export class Summary extends Component {
                                 </div>
                                     <div className="data-value">
                                         {
-                                            this.state.summary_data["deaths"]
+                                            numeral(this.state.summary_data["deaths"]).format('0,0')
+                                            // this.state.summary_data["deaths"]
                                         }
                                     </div>
                                 </div>
