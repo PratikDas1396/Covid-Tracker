@@ -1,5 +1,6 @@
 {
   "name": "covid-dashbard",
+  "homepage": "http://pratikdas1396.github.io/covid-tracker",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,9 +22,11 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -43,6 +46,7 @@
   },
   "devDependencies": {
     "css-loader": "^3.6.0",
-    "style-loader": "^1.2.1"
+    "style-loader": "^1.2.1",
+    "gh-pages": "^3.1.0"
   }
 }

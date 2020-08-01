@@ -118,35 +118,3 @@ export class WorldMap extends Component {
 
     }
 }
-
-// {
-//     type: 'mapbubble',
-//     name: 'Corona affected countries',
-//     joinBy: ['iso-a3', 'iso3'],
-//     cursor: 'pointer',
-//     showInLegend: true,
-//     minSize: 4,
-//     maxSize: '12%',
-//     visible: true,
-//     marker: {
-//         fillColor: 'rgb(255, 0, 0)',
-//         fillOpacity: 0.5,
-//         lineColor: null,
-//         lineWidth: 1,
-//         symbol: "circle"
-//     }
-
-// }
-
-// {
-//     type: 'map',
-//     mapData: jsonData,
-//     name: 'Corona Cases Data',
-//     data: param_data,
-//     showInLegend: false,
-//     borderColor: '#4a7ac3',
-//     nullColor: '#142e50',
-//     color: 'rgb(247, 247, 247)',
-//     enableMouseTracking: true,
-//     visible: true,
-// }
