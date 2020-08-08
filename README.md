@@ -3,6 +3,7 @@ This project is developed for study purpose.
 
 ## Visit Dashboard
 To open covid tracker click [here](https://pratikdas1396.github.io/Covid-Tracker/).
+![Image of Yaktocat](/public/application.jpeg)
 
 ## Features
 * __Live Data__: Shows the most recent data.
