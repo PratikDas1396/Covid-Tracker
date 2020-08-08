@@ -1,6 +1,6 @@
 {
-  "name": "covid-dashbard",
-  "homepage": "http://pratikdas1396.github.io/covid-tracker",
+  "name": "covid-tracker",
+  "homepage": "http://pratikdas1396.github.io/Covid-Tracker",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

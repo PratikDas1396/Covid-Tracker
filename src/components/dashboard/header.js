@@ -10,7 +10,7 @@ function Header() {
                     <div className="col-xl-12">
                         <div className="navbar navbar-expand-lg navbar-light">
                             <a className="navbar-brand" href="index.html">
-                                <img src="image/logo.png" alt="" />
+                                <img src="/image/logo.png" alt="" />
                                 <span>Covid Tracker</span>
                             </a>
                         </div>

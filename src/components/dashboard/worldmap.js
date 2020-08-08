@@ -4,7 +4,17 @@ import HighchartsReact from "highcharts-react-official";
 import highchartsMap from "highcharts/modules/map";
 import axios from 'axios'
 import proj4 from 'proj4'
-import Country_Map from "@highcharts/map-collection/custom/world-eckert3-highres.geo.json";
+import Country_Map from "@highcharts/map-collection/custom/world.geo.json";
+
+Highcharts.setOptions({
+    lang: {
+        loading: "Loading...",
+        zoomIn: "Zoom in",
+        zoomOut: "Zoom out",
+        resetZoom:"Reset zoom"
+    }
+})
+
 highchartsMap(Highcharts);
 
 export class WorldMap extends Component {
@@ -39,8 +49,7 @@ export class WorldMap extends Component {
             'iso3': x['countryInfo']['iso3'],
             'cases': x['cases'],
             'recovered': x['recovered'],
-            'deaths': x['deaths'],
-
+            'deaths': x['deaths']
         }))
     }
 
@@ -50,16 +59,12 @@ export class WorldMap extends Component {
     }
 
     getMapObject(param_data) {
-        let jsonData = Country_Map;
-        jsonData['hc-transform'] = {
-            'default': { "crs": '+proj=lcc +lat_1=39.71666666666667 +lat_2=40.78333333333333 +lat_0=39.33333333333334 +lon_0=-105.5 +x_0=914401.8289 +y_0=304800.6096 +ellps=GRS80 +units=m +no_defs' }
-        }
         let mapOptions = {
             chart: {
                 style: { width: '100%', height: '500px' },
                 backgroundColor: "#030f1e",
-                map: 'custom/world-eckert3-highres',
-                proj4: proj4
+                proj4: proj4,
+                map: 'custom/world'
             },
             tooltip: {
                 headerFormat: '',
@@ -79,28 +84,46 @@ export class WorldMap extends Component {
             },
             series: [
                 {
-                    type: 'mapbubble',
-                    borderColor: '#4a7ac3',
-                    nullColor: '#142e50',
-                    color: 'rgb(247, 247, 247)',
-                    enableMouseTracking: true,
+                    type: 'map',
+                    enableMouseTracking: false,
+                    mapData: Country_Map,
+                    showInLegend: false,
                     data: param_data,
-                    mapData: jsonData,
+                    color:"rgb(0, 255, 0)",
+                    dataLabels: {
+                        enabled: true,
+                        color: '#FFFFFF',
+                        style: {
+                            fontSize : '8px',
+                            zIndex:'-1'
+                        },
+                        formatter: function () {
+                            if (this.point.properties) {
+                                return this.point.properties['name'];
+                            }
+                        }
+                    },
+                },
+                {
+                    type: 'mapbubble',
+                    border: '2px solid rgba(26,115,232,0.878)',
+                    nullColor: '#142e50',
+                    enableMouseTracking: true,
+                    mapData: Country_Map,
+                    data: param_data,
                     name: 'Corona affected countries',
                     joinBy: ['iso-a3', 'iso3'],
                     cursor: 'pointer',
-                    showInLegend: true,
-                    minSize: 4,
-                    maxSize: '12%',
+                    showInLegend: false,
+                    maxSize: '20%',
                     visible: true,
                     marker: {
-                        fillColor: 'rgb(255, 0, 0)',
+                        fillColor: 'rgba(26,115,232,0.659)',
                         fillOpacity: 0.5,
                         lineColor: null,
                         lineWidth: 1,
                         symbol: "circle"
-                    }
-
+                    },
                 }
             ]
         }
@@ -108,13 +131,14 @@ export class WorldMap extends Component {
     }
 
     render() {
-        if (this.state.showMap) {
-            return this.getHighChart()
-        } else {
-            return (<div>
+          return this.getHighChart()
+        // if (this.state.showMap) {
+          
+        // } else {
+        //     return (<div>
 
-            </div>)
-        }
+        //     </div>)
+        // }
 
     }
 }
